@@ -46,7 +46,6 @@ while not game.over:
         b.move()
     for h in heart:
         h.move()
-        
     car.move()
     if keys.Pressed[K_UP]:
         zoom.play()
@@ -82,6 +81,7 @@ while not game.over:
             b.moveTo(randint(10,750),randint(-800,-50))
             b.resizeTo(863,558)
             b.visible = True
+            car.health -= 5
         
     for h in heart:
         h.move()
@@ -93,7 +93,7 @@ while not game.over:
             h.move()
             h.y+=2
 
-        if car.collidedWith(h,"squuare"):
+        if car.collidedWith(h,"square"):
             h.moveTo(randint(10,750),randint(-800,-50))
             h.resizeTo(863,558)
             h.visible = True
@@ -115,7 +115,7 @@ while not game.over:
         
 
     
-
+    game.drawText("Car Health:  " + str(game.health), 100,5)
     game.update(60)
 game.quit()
 
